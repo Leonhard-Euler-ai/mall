@@ -3,42 +3,46 @@
     <nav-bar class="home-nav">
       <template v-slot:center>购物街</template>
     </nav-bar>
-    <div>
-      {{banners}}
-    </div>
-    <div>
-      {{recommends}}
-    </div>
+    <home-carousel :banners="banners"></home-carousel>
+    <div>推荐内容</div>
   </div>
 </template>
 
 <script>
 import NavBar from "components/common/navbar/NavBar";
+import HomeCarousel from "views/home/childComps/HomeCarousel";
 import {getHomeMultidata} from "network/home";
+
 
 export default {
   name: "Home",
-  components:{
-    NavBar
+  components: {
+    NavBar,
+    HomeCarousel
   },
-  data(){
-    return{
-      banners:[],
-      recommends:[]
+  data() {
+    return {
+      banners: [],
+      recommends: []
     }
   },
   created() {
-    getHomeMultidata().then(res=>{
-      this.banners=res.data.banner.list;
-      this.recommends=res.data.recommend.list;
+    getHomeMultidata().then(res => {
+      this.banners = res.data.banner.list;
+      this.recommends = res.data.recommend.list;
     })
   }
 }
 </script>
 
 <style scoped>
-  .home-nav{
-    background-color: var(--color-tint);
-    color: #fff;
-  }
+#home {
+  height: 100vh;
+  position: relative;
+}
+
+.home-nav {
+  background-color: var(--color-tint);
+  color: #fff;
+}
 </style>
