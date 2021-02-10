@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <el-button>el-button</el-button>
     <MainTabBar/>
   </div>
 </template>
