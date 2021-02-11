@@ -4,21 +4,23 @@
       <template v-slot:center>购物街</template>
     </nav-bar>
     <home-carousel :banners="banners"></home-carousel>
-    <div>推荐内容</div>
+    <home-recommend :recommends="recommends"></home-recommend>
   </div>
 </template>
 
 <script>
 import NavBar from "components/common/navbar/NavBar";
 import HomeCarousel from "views/home/childComps/HomeCarousel";
-import {getHomeMultidata} from "network/home";
+import HomeRecommend from "views/home/childComps/HomeRecommend";
 
+import {getHomeMultidata} from "network/home";
 
 export default {
   name: "Home",
   components: {
     NavBar,
-    HomeCarousel
+    HomeCarousel,
+    HomeRecommend
   },
   data() {
     return {
