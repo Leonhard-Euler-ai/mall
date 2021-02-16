@@ -61,7 +61,7 @@ export default {
       isShowBackTop: false,
       tabOffsetTop: 0,
       isTabFixed: false,
-      scrollY: 0
+      saveY: 0
     }
   },
   computed: {
@@ -84,11 +84,11 @@ export default {
     // })
   },
   // activated() {
-  //   this.$refs.scroll.scrollTo(0,this.scrollY,0);
+  //   this.$refs.scroll.scrollTo(0,this.saveY,0);
   //   this.$refs.scroll.scroll.refresh();
   // },
   // deactivated() {
-  //   this.scrollY = -this.$refs.scroll.scroll.y
+  //   this.saveY = this.$refs.scroll.scroll.y
   // },
   methods: {
     /**

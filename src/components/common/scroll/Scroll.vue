@@ -49,19 +49,25 @@ export default {
       this.$emit('scroll', pos)
     })
 
-    this.scroll.on('pullingUp',()=>{
-      this.$emit('pullingUp')
-    })
-  },
-  methods: {
-    scrollTo(x, y, time = 300) {
-      this.scroll.scrollTo(x, y, time)
-    },
-
-    finishPullUp(){
-      this.scroll.finishPullUp()
+    if (this.pullUpLoad) {
+      this.scroll.on('pullingUp', () => {
+        this.$emit('pullingUp')
+      })
     }
+}
+,
+methods: {
+  scrollTo(x, y, time = 300)
+  {
+    this.scroll.scrollTo(x, y, time)
   }
+,
+
+  finishPullUp()
+  {
+    this.scroll.finishPullUp()
+  }
+}
 }
 </script>
 

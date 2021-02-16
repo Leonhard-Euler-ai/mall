@@ -1,5 +1,5 @@
 <template>
-  <div id="swiper">
+  <div id="home-swiper">
     <el-carousel height="160px">
       <el-carousel-item v-for="(item,id) in banners" :key="id">
         <img :src="item.image" alt="" @load="carouselImageLoad">
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style>
-#swiper {
+#home-swiper {
   overflow: hidden;
   position: relative;
 }
