@@ -10,7 +10,7 @@
       <detail-comment-info ref="detailCommentInfo" :comment-info="commentInfo"/>
       <goods-list ref="detailRecommend" :goodsList="recommends"/>
     </scroll>
-    <detail-bottom-bar/>
+    <detail-bottom-bar @addCart="addToCart"/>
   </div>
 </template>
 
@@ -99,6 +99,20 @@ export default {
           this.$refs.scroll.scroll.scrollToElement(this.$refs.detailRecommend.$el);
           break;
       }
+    },
+    addToCart() {
+      // 创建对象
+      const obj = {}
+      // 2.对象信息
+      obj.iid = this.iid;
+      obj.image = this.topImages[0]
+      obj.title = this.goods.title
+      obj.desc = this.goods.desc;
+      obj.price = this.goods.realPrice;
+      // 添加到Store中
+      this.$store.dispatch('addCart', obj).then(res=>{
+        console.log(res);
+      })
     }
   }
 }
