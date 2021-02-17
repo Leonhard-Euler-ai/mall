@@ -8,11 +8,11 @@ const actions = {
 
       if (oldProduct) {
         context.commit(ADD_COUNTER, oldProduct)
-        resolve('该商品数量t+1')
+        resolve('该商品数量+1')
       } else {
         payload.count = 1
         context.commit(ADD_TO_CART, payload)
-        resolve('添加新商品')
+        resolve('已添加到购物车！')
       }
     })
   },

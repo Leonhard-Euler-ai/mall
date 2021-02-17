@@ -5,7 +5,7 @@
       <span>全选</span>
     </div>
     <span class="total-price">合计: ¥{{ totalPrice }}</span>
-    <span class="buy-product">去计算({{ endCount }})</span>
+    <span class="buy-product" @click="settleClick">去计算({{ endCount }})</span>
   </div>
 </template>
 
@@ -35,6 +35,24 @@ export default {
   methods:{
     changeSelectAll(){
       this.$store.dispatch('changeSelectAll',!this.isSelectAll)
+    },
+    settleClick(){
+      if(this.endCount===0) {
+        this.$notify.warning({
+          message:'请选择购买的商品',
+          duration:1000,
+          position:"top-right",
+          showClose:false
+        })
+      }
+      else{
+        this.$notify.success({
+          message:'即将跳转到支付界面',
+          duration:1000,
+          position:"top-right",
+          showClose:false
+        })
+      }
     }
   }
 }

@@ -111,7 +111,13 @@ export default {
       obj.price = this.goods.realPrice;
       // 添加到Store中
       this.$store.dispatch('addCart', obj).then(res=>{
-        console.log(res);
+        this.$message({
+          message:res,
+          center:true,
+          type:"success",
+          offset:230,
+          duration:1500
+        })
       })
     }
   }
