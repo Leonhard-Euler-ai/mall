@@ -9,5 +9,8 @@ module.exports = {
       .set('views', resolve('src/views'))
       .set('components', resolve('src/components'))
       .set('network', resolve('src/network'))
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/supermall/'
+    : '/'
 }
